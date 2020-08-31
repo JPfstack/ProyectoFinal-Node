@@ -1,0 +1,31 @@
+
+### CLIENTES: PETICION POST REGISTRO CLIENTE
+POST http://localhost:3000/api/clientes
+Content-Type: application/json
+
+{
+    "nombre": "Juan", 
+    "apellidos": "Perez",
+    "telefono": 917854747, 
+    "direccion": "calle Villanueva 5", 
+    "email": "juanperez@gmail.com"
+}
+
+
+### CLIENTES: PETICION GET DETALLE CLIENTE
+GET http://localhost:3000/api/clientes/5
+
+
+
+
+
+### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
+POST http://localhost:3000/api/admin
+
+### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES
+GET http://localhost:3000/api/admin
+
+
+
+### PRODUCTOS: PETICION GET PARA OBTENER TODOS LOS PRODUCTOS
+GET http://localhost:3000/api/productos

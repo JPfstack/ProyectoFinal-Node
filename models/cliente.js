@@ -18,7 +18,7 @@ function registroCliente({ nombre, apellidos, telefono, direccion, email }) {
 //METODO PARA OBTENER LOS DATOS DE UN CLIENTE
 function getClienteById(pClienteId) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.clientes AND SELECT * FROM ifruit.pedidos WHERE id_cliente=?',
+        db.query('SELECT * FROM ifruit.clientes WHERE id_cliente=?',
             [pClienteId],
             (error, rows) => {
                 if (error) { return reject(error) }

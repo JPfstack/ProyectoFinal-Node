@@ -19,8 +19,20 @@ function getProductoById(pProductoId) {
                 resolve(row)
             })
     })
-}
+};
+
+//METODO PARA INLCUIR UN PRODUCTO EN FAVORITOS
+function insertFavorito({ fk_id_cliente, fk_id_producto }) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO ifruit.tbi_cliente_producto (fk_id_cliente, fk_id_producto) VALUES (?,?)',
+            [fk_id_cliente, fk_id_producto],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result)
+            })
+    })
+};
 
 
 
-module.exports = { getAllProductos, getProductoById }
+module.exports = { getAllProductos, getProductoById, insertFavorito }

@@ -45,4 +45,19 @@ function getAllPedidosClientes(pClienteId) {
     })
 };
 
-module.exports = { registroCliente, getClienteById, getAllPedidosClientes }
+//METODO PARA OBTENER EL ID DE UN CLIENTE A PARTIR DEL EMAIL
+function getIdByEmail(pEmail) {
+    return new Promise((resolve, reject) => [
+        db.query('SELECT clientes.id_clientes FROM ifruit.clientes WHERE email=?',
+            [pEmail],
+            (error, result) => {
+                if (error) return reject(error);
+                else {
+                    resolve(result);
+                    console.log(result)
+                }
+            })
+    ])
+}
+
+module.exports = { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail }

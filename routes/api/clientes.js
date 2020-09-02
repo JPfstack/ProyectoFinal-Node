@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { registroCliente, getClienteById, getAllPedidosClientes } = require('../../models/cliente');
+const { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail } = require('../../models/cliente');
 
 
 //PETICION REGISTRAR NUEVO CLIENTE
@@ -26,6 +26,16 @@ router.get('/:clienteId', async (req, res) => {
   }
 });
 
+//PETICION OBTENER ID DEL CLIENTE POR EMAIL
+router.get('/:email', async (req, res) => {
+  try {
+    const idCliente = await getIdByEmail(req.params);
+    res.json(idCliente)
+    console.log(idCliente)
+  } catch (error) {
+    res.json({ error: error.message })
+  }
+})
 
 //PETICION OBTENER TODOS LOS PEDIDOS DE UN CLIENTE
 router.post('/:clienteId', async (req, res) => {
@@ -36,5 +46,7 @@ router.post('/:clienteId', async (req, res) => {
     res.json({ error: error.message })
   }
 });
+
+
 
 module.exports = router;

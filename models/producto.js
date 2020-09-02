@@ -9,5 +9,18 @@ function getAllProductos() {
     })
 };
 
+// METODO PARA OBTENER UN PRODUCTO POR ID
+function getProductoById(pProductoId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM ifruit.productos WHERE id_prod=?',
+            [pProductoId],
+            (error, row) => {
+                if (error) return reject(error)
+                resolve(row)
+            })
+    })
+}
 
-module.exports = { getAllProductos }
+
+
+module.exports = { getAllProductos, getProductoById }

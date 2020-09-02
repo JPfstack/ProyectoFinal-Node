@@ -29,3 +29,6 @@ GET http://localhost:3000/api/admin
 
 ### PRODUCTOS: PETICION GET PARA OBTENER TODOS LOS PRODUCTOS
 GET http://localhost:3000/api/productos
+
+### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
+GET http://localhost:3000/api/productos/2

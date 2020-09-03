@@ -45,19 +45,19 @@ function getAllPedidosClientes(pClienteId) {
     })
 };
 
-//METODO PARA OBTENER EL ID DE UN CLIENTE A PARTIR DEL EMAIL
+//METODO PARA LOGIN, OBTENER EL ID DE UN CLIENTE A PARTIR DEL EMAIL
 function getIdByEmail(pEmail) {
     return new Promise((resolve, reject) => [
-        db.query('SELECT clientes.id_clientes FROM ifruit.clientes WHERE email=?',
+        db.query('SELECT * FROM ifruit.clientes WHERE email=?',
             [pEmail],
-            (error, result) => {
-                if (error) return reject(error);
-                else {
-                    resolve(result);
-                    console.log(result)
-                }
+            (error, rows) => {
+                if (error) { return reject(error) }
+                if (rows.length !== 1) { resolve(null) }
+
+                resolve(rows[0]);
+                console.log(rows[0])
             })
     ])
-}
+};
 
 module.exports = { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail }

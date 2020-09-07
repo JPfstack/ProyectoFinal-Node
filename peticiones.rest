@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
     "email": "jp@gmail.com",
-    "password": 0
+    "password": 1234
 }
 ### ADMIN: PETICION PARA CREAR UN NUEVO PEDIDO
 POST http://localhost:3000/api/admin
@@ -37,7 +37,8 @@ Content-Type: application/json
 
 
 ### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
-POST http://localhost:3000/api/admin
+GET http://localhost:3000/api/adminpedidos/
+
 
 ### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES
 GET http://localhost:3000/api/admin

@@ -1,8 +1,8 @@
 //METODO PARA REGISTRAR NUEVO CLIENTE
-function registroCliente({ nombre, apellidos, telefono, direccion, email }) {
+function registroCliente({ nombre, apellidos, telefono, direccion, email, password }) {
     return new Promise((resolve, reject) => {
-        db.query('INSERT INTO ifruit.clientes (nombre,apellidos,telefono,direccion,email) VALUES (?,?,?,?,?)',
-            [nombre, apellidos, telefono, direccion, email],
+        db.query('INSERT INTO ifruit.clientes (nombre,apellidos,telefono,direccion,email,password) VALUES (?,?,?,?,?,?)',
+            [nombre, apellidos, telefono, direccion, email, password],
             (error, result) => {
                 if (error) {
                     console.log(error);

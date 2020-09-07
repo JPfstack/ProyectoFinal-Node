@@ -19,7 +19,9 @@ router.post('/', async (req, res) => {
   try {
     const result = await registroCliente(req.body);
     console.log(result);
-    res.json({ sucess: 'Cliente registrado' })
+    const nuevoCliente = await getClienteById(result['insertId']);
+    console.log(nuevoCliente);
+    res.json(nuevoCliente)
   } catch (error) {
     res.json({ error: error.message })
   }
@@ -30,16 +32,18 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const cliente = await getIdByEmail(req.body.email);
-    if (req.body.password === cliente.password) {
-      console.log(cliente)
+    console.log(req.body.password)
+    console.log(cliente.password)
+    if (req.body.password == cliente.password) {
       res.json(cliente);
     } else {
-      res.json({ error: 'Datos incorrectos' })
+      res.json({ error: error.message });
     }
-
   } catch (error) {
-    res.json({ error: error.message })
+    console.log(error);
   }
+
+
 });
 
 //PETICION OBTENER TODOS LOS PEDIDOS DE UN CLIENTE

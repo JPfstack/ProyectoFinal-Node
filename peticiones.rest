@@ -11,7 +11,6 @@ Content-Type: application/json
     "email": "juanperez@gmail.com"
 }
 
-
 ### CLIENTES: PETICION GET DETALLE CLIENTE
 GET http://localhost:3000/api/clientes/5
 
@@ -19,8 +18,17 @@ GET http://localhost:3000/api/clientes/5
 ### CLIENTES: PETICION ID SEGUN EMAIL
 GET http://localhost:3000/api/clientes/jp@gmail.com
 
+### ADMIN: PETICION PARA CREAR UN NUEVO PEDIDO
+POST http://localhost:3000/api/admin
+Content-Type: application/json
 
-
+{
+    "id_pedido":3,
+    "cantidad":010,
+    "fecha_entrega":"2020-09-05",
+    "precio_total": 6.50,
+    "id_cliente":1
+}
 
 
 ### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
@@ -36,3 +44,6 @@ GET http://localhost:3000/api/productos
 
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
+
+###PEDIDOS: PETICION POST PARA OBTENER TODOS LOS PEDIDOS
+POST http://localhost:3000/api/admin

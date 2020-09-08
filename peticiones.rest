@@ -23,25 +23,6 @@ Content-Type: application/json
     "email": "jp@gmail.com",
     "password": 0
 }
-### ADMIN: PETICION PARA CREAR UN NUEVO PEDIDO
-POST http://localhost:3000/api/admin
-Content-Type: application/json
-
-{
-    "id_pedido":3,
-    "cantidad":010,
-    "fecha_entrega":"2020-09-05",
-    "precio_total": 6.50,
-    "id_cliente":1
-}
-
-
-### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
-POST http://localhost:3000/api/admin
-
-### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES
-GET http://localhost:3000/api/admin
-
 
 
 ### PRODUCTOS: PETICION GET PARA OBTENER TODOS LOS PRODUCTOS
@@ -50,5 +31,30 @@ GET http://localhost:3000/api/productos
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
 
+
+### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO
+POST http://localhost:3000/api/pedidos/nuevo
+Content-Type: application/json
+
+{
+    "cantidad":10,
+    "fecha_entrega":"2020-09-05",
+    "precio_total": 6.50,
+    "id_cliente":4,
+    "direccion":"Calle gran via 12",
+    "descripcion": "1 kg melon"
+}
+
+
+### PEDIDOS: PETICION POST OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
+POST http://localhost:3000/api/pedidos
+
+### PEDIDOS: PETICION POST OBTENER LISTA DE PEDIDOS REALIZADOS
+POST http://localhost:3000/api/pedidos/realizado
+
 ###PEDIDOS: PETICION POST PARA OBTENER TODOS LOS PEDIDOS
-POST http://localhost:3000/api/admin
+GET http://localhost:3000/api/pedidos
+
+
+### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES
+GET http://localhost:3000/api/admin

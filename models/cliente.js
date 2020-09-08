@@ -60,4 +60,5 @@ function getIdByEmail(pEmail) {
     ])
 };
 
+
 module.exports = { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail }

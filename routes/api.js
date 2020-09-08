@@ -4,6 +4,7 @@ const router = express.Router();
 const apiClientesRouter = require('./api/clientes');
 const apiAdminRouter = require('./api/admin');
 const apiProductosRouter = require('./api/productos');
+const { checkToken } = require('./middlewares');
 
 
 

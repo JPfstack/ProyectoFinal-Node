@@ -8,11 +8,13 @@ const cors = require('cors');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
+
+
 const apiRouter = require('./routes/api');
 const dbConfig = require('./dbConfig');
 
 
-
+require('dotenv').config();
 const app = express();
 
 //LANZAMOS LA CONEXION A LA BASE DE DATOS

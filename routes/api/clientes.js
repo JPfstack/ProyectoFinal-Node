@@ -6,6 +6,21 @@ const moment = require('moment');
 
 const { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail } = require('../../models/cliente');
 
+
+//PETICION PARA OBTENER ID A PARTIR DEL TOKEN
+router.post('/token', async (req, res) => {
+
+  console.log(process.env.SECRET_KEY)
+  console.log('HOLA')
+  const payload = jwt.verify(req.body.token, process.env.SECRET_KEY);
+  console.log(payload)
+
+  console.log(payload.clienteId);
+  res.json({ userid: payload.clienteId })
+
+});
+
+
 //PETICION OBTENER DATOS DE UN CLIENTE
 router.get('/:clienteId', async (req, res) => {
   try {

@@ -37,12 +37,12 @@ POST http://localhost:3000/api/pedidos/nuevo
 Content-Type: application/json
 
 {
-    "cantidad":10,
-    "fecha_entrega":"2020-09-05",
-    "precio_total": 6.50,
-    "id_cliente":4,
-    "direccion":"Calle gran via 12",
-    "descripcion": "1 kg melon"
+    "cantidad":11,
+    "fecha_entrega":"2020-09-06",
+    "precio_total": 7.50,
+    "id_cliente":5,
+    "direccion":"Calle gran via",
+    "descripcion": "1 kg fresas"
 }
 
 

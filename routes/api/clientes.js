@@ -43,18 +43,13 @@ router.post('/login', async (req, res) => {
 
       } else {
         res.json({ error: error.message });
-
       }
     } else {
-
       res.json(error.message);
-
     }
   } catch (error) {
     res.json(error.message);
   }
-
-
 });
 
 //PETICION OBTENER TODOS LOS PEDIDOS DE UN CLIENTE

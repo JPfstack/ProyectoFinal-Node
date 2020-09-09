@@ -30,6 +30,18 @@ GET http://localhost:3000/api/productos
 
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
+
+
+### PRODUCTOS: INCLUIR PRODUCTO A FAVORITOS SEGUN ID CLIENTE
+POST http://localhost:3000/api/productos/favoritos
+Content-Type: application/json
+
+{
+    "fk_id_cliente": 86, 
+    "fk_id_producto":3
+}
+
+
 ### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
 GET http://localhost:3000/api/adminpedidos/
 
@@ -57,6 +69,11 @@ POST http://localhost:3000/api/pedidos/realizado
 
 ###PEDIDOS: PETICION POST PARA OBTENER TODOS LOS PEDIDOS
 GET http://localhost:3000/api/pedidos
+
+###PEDIDOS: PETICION POST OBTENER PEDIDOS SEGUN ID DE CLIENTE
+GET http://localhost:3000/api/clientes/pedidos/77
+
+
 
 
 ### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES

@@ -33,13 +33,14 @@ function getClienteById(pClienteId) {
 //METODO PARA OBTENER EL HISTORICO DE PEDIDOS DE UN CLIENTE
 function getAllPedidosClientes(pClienteId) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.pedidos AND WHERE id_cliente=?',
+        db.query('SELECT * FROM ifruit.pedidos WHERE id_cliente=?',
             [pClienteId],
             (error, rows) => {
                 if (error) { return reject(error) }
                 if (rows.length === 0) { resolve(null) }
                 else {
-                    resolve(rows[0]);
+                    resolve(rows);
+                    console.log(rows);
                 }
             })
     })

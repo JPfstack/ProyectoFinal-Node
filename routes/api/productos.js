@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS
@@ -23,6 +23,17 @@ router.get('/:productoId', async (req, res) => {
     } catch (error) {
         res.json({ error: error.message })
     }
-})
+});
+
+//PETICION PARA INCLUIR UN PRODUCTO EN FAVORITOS
+router.post('/favoritos', async (req, res) => {
+    try {
+        const respuesta = await insertFavorito(req.body)
+        console.log(req.body);
+        res.json(respuesta)
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
 
 module.exports = router;

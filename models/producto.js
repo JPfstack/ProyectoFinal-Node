@@ -27,8 +27,12 @@ function insertFavorito({ fk_id_cliente, fk_id_producto }) {
         db.query('INSERT INTO ifruit.tbi_cliente_producto (fk_id_cliente, fk_id_producto) VALUES (?,?)',
             [fk_id_cliente, fk_id_producto],
             (error, result) => {
-                if (error) return reject(error);
-                resolve(result)
+                if (error) { reject(error) }
+                else {
+                    resolve(result)
+                    console.log(result);
+                }
+
             })
     })
 };

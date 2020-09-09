@@ -68,9 +68,11 @@ router.post('/login', async (req, res) => {
 });
 
 //PETICION OBTENER TODOS LOS PEDIDOS DE UN CLIENTE
-router.post('/:clienteId', async (req, res) => {
+router.get('/pedidos/:clienteId', async (req, res) => {
   try {
     const historicoPedidos = await getAllPedidosClientes(req.params.clienteId);
+    console.log(req.params.clienteId);
+    console.log(historicoPedidos);
     res.json(historicoPedidos);
   } catch (error) {
     res.json({ error: error.message })

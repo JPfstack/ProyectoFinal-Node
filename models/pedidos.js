@@ -50,7 +50,8 @@ const nuevoPedido = ({ cantidad, fecha_entrega, precio_total, id_cliente, direcc
             });
     });
 
-}
+};
+
 
 
 

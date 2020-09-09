@@ -61,3 +61,11 @@ GET http://localhost:3000/api/pedidos
 
 ### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES
 GET http://localhost:3000/api/admin
+
+###
+POST http://localhost:3000/api/clientes/token/
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRlSWQiOjc3LCJjcmVhdGVkQXQiOjE1OTk2NDI3OTYsImV4cGlyZWRBdCI6MTU5OTY0MzY5NiwiaWF0IjoxNTk5NjQyNzk2fQ.lTcgnP8v3nDHJ17cdnJdZGcuj4NzGUowEWC0p44ENO0"
+}

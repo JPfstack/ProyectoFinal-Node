@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
     "email": "jp@gmail.com",
-    "password": 0
+    "password": 1234
 }
 
 
@@ -30,6 +30,9 @@ GET http://localhost:3000/api/productos
 
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
+### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
+GET http://localhost:3000/api/adminpedidos/
+
 
 
 ### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO

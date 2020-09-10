@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 })
 
 //PETICION OBTENER TODOS LOS PEDIDOS PENDIENTES DE ENTREGA
-router.post('/', async (req, res) => {
+router.post('/pendientes', async (req, res) => {
     try {
         const pedidosPendientes = await getAllPedidosAdmin();
         res.json(pedidosPendientes);
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 
 //PETICION PARA OBTENER LOS PEDIDOS REALIZADOS
 
-router.post('/realizado', async (req, res) => {
+router.post('/realizados', async (req, res) => {
     try {
         const pedidosRealizados = await getAllPedidoRealizado();
         res.json(pedidosRealizados);

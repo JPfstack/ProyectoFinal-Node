@@ -30,10 +30,6 @@ GET http://localhost:3000/api/productos
 
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
-### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
-GET http://localhost:3000/api/adminpedidos/
-
-
 
 ### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO
 POST http://localhost:3000/api/pedidos/nuevo
@@ -45,15 +41,16 @@ Content-Type: application/json
     "precio_total": 7.50,
     "id_cliente":5,
     "direccion":"Calle gran via",
-    "descripcion": "1 kg fresas"
+    "descripcion": "1 kg fresas",
+    "estado":"realizado"
 }
 
 
 ### PEDIDOS: PETICION POST OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
-POST http://localhost:3000/api/pedidos
+POST http://localhost:3000/api/pedidos/pendientes
 
 ### PEDIDOS: PETICION POST OBTENER LISTA DE PEDIDOS REALIZADOS
-POST http://localhost:3000/api/pedidos/realizado
+POST http://localhost:3000/api/pedidos/realizados
 
 ###PEDIDOS: PETICION POST PARA OBTENER TODOS LOS PEDIDOS
 GET http://localhost:3000/api/pedidos

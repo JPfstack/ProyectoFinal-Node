@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
-const { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail } = require('../../models/cliente');
+const { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail, editCliente } = require('../../models/cliente');
 
 
 //PETICION PARA OBTENER ID A PARTIR DEL TOKEN
@@ -74,6 +74,17 @@ router.get('/pedidos/:clienteId', async (req, res) => {
     console.log(req.params.clienteId);
     console.log(historicoPedidos);
     res.json(historicoPedidos);
+  } catch (error) {
+    res.json({ error: error.message })
+  }
+});
+
+//PETICION ACTUALIZAR DATOS CLIENTE
+router.put('/', async (req, res) => {
+  try {
+    const result = await editCliente(req.body);
+    /*    console.log(result); */
+    res.json(result);
   } catch (error) {
     res.json({ error: error.message })
   }

@@ -24,6 +24,19 @@ Content-Type: application/json
     "password": 1234
 }
 
+### CLIENTES: ACTUALIZAR DATOS CLIENTES
+PUT http://localhost:3000/api/clientes
+Content-Type: application/json
+
+{
+    "id_cliente": 76,
+    "nombre": "Juan Pedro", 
+    "apellidos": "Jimenez",
+    "telefono": 625787979, 
+    "direccion": "Valdemoro(Madrid)", 
+    "email": "jp@gmail.com"
+}
+
 
 ### PRODUCTOS: PETICION GET PARA OBTENER TODOS LOS PRODUCTOS
 GET http://localhost:3000/api/productos
@@ -40,6 +53,10 @@ Content-Type: application/json
     "fk_id_cliente": 86, 
     "fk_id_producto":3
 }
+
+### PRODUCTOS: OBTENER PRODUCTOS FAVORITOS DE UN CLIENTE
+GET  http://localhost:3000/api/productos/favoritos/80
+
 
 
 ### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA

@@ -61,5 +61,20 @@ function getIdByEmail(pEmail) {
     ])
 };
 
+//METODO PARA EDITAR DATOS DE UN CLIENTE
+function editCliente({ nombre, apellidos, direccion, telefono, email, id_cliente }) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE ifruit.clientes SET nombre=?, apellidos=?, direccion=?, telefono=?, email=? WHERE id_cliente=?',
+            [nombre, apellidos, direccion, telefono, email, id_cliente],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(result)
+                    console.log(result)
+                }
+            })
+    })
+};
 
-module.exports = { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail }
+
+module.exports = { registroCliente, getClienteById, getAllPedidosClientes, getIdByEmail, editCliente }

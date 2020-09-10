@@ -37,6 +37,20 @@ function insertFavorito({ fk_id_cliente, fk_id_producto }) {
     })
 };
 
+//METODO PARA OBTENER LOS PRODUCTOS FAVORITOS DE UN CLIENTE
+function getProdFav(fk_id_cliente) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT clientes.id_cliente, productos.* FROM clientes INNER JOIN tbi_cliente_producto ON clientes.id_cliente = tbi_cliente_producto.fk_id_cliente INNER JOIN productos ON tbi_cliente_producto.fk_id_producto = productos.id_prod ORDER by tbi_cliente_producto.fk_id_cliente',
+            [fk_id_cliente],
+            (error, rows) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(rows);
+                    console.log(rows);
+                }
+            })
+    })
+};
 
 
-module.exports = { getAllProductos, getProductoById, insertFavorito }
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav }

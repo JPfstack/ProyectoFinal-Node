@@ -30,6 +30,7 @@ router.post('/favoritos', async (req, res) => {
     try {
         const respuesta = await insertFavorito(req.body)
         console.log(req.body);
+        console.log(respuesta);
         res.json(respuesta)
     } catch (error) {
         res.json({ error: error.message })

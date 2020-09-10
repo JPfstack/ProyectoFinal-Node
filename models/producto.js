@@ -30,7 +30,7 @@ function insertFavorito({ fk_id_cliente, fk_id_producto }) {
                 if (error) { reject(error) }
                 else {
                     resolve(result)
-                    console.log(result);
+                    /* console.log(result); */
                 }
 
             })

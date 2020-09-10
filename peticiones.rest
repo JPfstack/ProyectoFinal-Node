@@ -30,7 +30,6 @@ GET http://localhost:3000/api/productos
 
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
-<<<<<<< HEAD
 
 
 ### PRODUCTOS: INCLUIR PRODUCTO A FAVORITOS SEGUN ID CLIENTE
@@ -42,13 +41,17 @@ Content-Type: application/json
     "fk_id_producto":3
 }
 
+###PRODUCTOS: AÑADIR UN PRODUCTO SELECCIONADO AL CARRITO
+POST http://localhost:3000/api/productos/anadir
+Content-Type: application/json
 
-### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
-GET http://localhost:3000/api/adminpedidos/
+{
+    "fk_id_producto":5,
+    "fk_id_pedido":1,
+    "cantidad": 12
+}
 
 
-=======
->>>>>>> 886ff19de05c65e5967eb2ef25b6ed6af049dfc8
 
 ### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO
 POST http://localhost:3000/api/pedidos/nuevo

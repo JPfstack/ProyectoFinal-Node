@@ -30,7 +30,6 @@ GET http://localhost:3000/api/productos
 
 ### PRODUCTOS: PETICION GET PARA OBTENER PRODUCTO POR ID
 GET http://localhost:3000/api/productos/2
-<<<<<<< HEAD
 
 
 ### PRODUCTOS: INCLUIR PRODUCTO A FAVORITOS SEGUN ID CLIENTE
@@ -47,8 +46,6 @@ Content-Type: application/json
 GET http://localhost:3000/api/adminpedidos/
 
 
-=======
->>>>>>> 886ff19de05c65e5967eb2ef25b6ed6af049dfc8
 
 ### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO
 POST http://localhost:3000/api/pedidos/nuevo

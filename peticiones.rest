@@ -58,9 +58,15 @@ Content-Type: application/json
 GET  http://localhost:3000/api/productos/favoritos/80
 
 
+###PRODUCTOS: AÑADIR UN PRODUCTO SELECCIONADO AL CARRITO
+POST http://localhost:3000/api/productos/anadir
+Content-Type: application/json
 
-### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
-GET http://localhost:3000/api/adminpedidos/
+{
+    "fk_id_producto":5,
+    "fk_id_pedido":1,
+    "cantidad": 12
+}
 
 
 

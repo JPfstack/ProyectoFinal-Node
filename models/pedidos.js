@@ -55,4 +55,6 @@ const nuevoPedido = ({ cantidad, fecha_entrega, precio_total, id_cliente, direcc
 
 
 
+
+
 module.exports = { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido }

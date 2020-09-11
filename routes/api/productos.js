@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById, insertFavorito, getProdFav } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS
@@ -51,6 +51,16 @@ router.get('/favoritos/:clienteId', async (req, res) => {
     }
 });
 
-
+//PETICION PARA ELIMINAR UN PRODUCTO DE FAVORITOS
+router.delete('/favoritos/remove', async (req, res) => {
+    try {
+        const result = await removeFav(req.body);
+        console.log(req.body);
+        res.json(result);
+        console.log(result);
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
 
 module.exports = router;

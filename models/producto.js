@@ -52,5 +52,19 @@ function getProdFav(fk_id_cliente) {
     })
 };
 
+//METODO PARA ELIMINAR PRODUCTO DE FAVORITOS
+function removeFav(fk_id_cliente, fk_id_producto) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM ifruit.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
+            [fk_id_cliente, fk_id_producto],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(result);
+                }
+            })
+    })
+};
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav }
+
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav }

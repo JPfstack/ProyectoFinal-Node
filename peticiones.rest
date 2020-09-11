@@ -57,6 +57,14 @@ Content-Type: application/json
 ### PRODUCTOS: OBTENER PRODUCTOS FAVORITOS DE UN CLIENTE
 GET  http://localhost:3000/api/productos/favoritos/80
 
+### PRODUCTOS: BORRAR PRODUCTOS DE FAVORITOS
+DELETE http://localhost:3000/api/productos/favoritos/remove
+Content-Type: application/json
+
+{
+    "fk_id_cliente": 116,
+    "fk_id_producto": 1,
+}
 
 
 ### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA

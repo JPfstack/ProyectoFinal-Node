@@ -57,10 +57,11 @@ function removeFav(fk_id_cliente, fk_id_producto) {
     return new Promise((resolve, reject) => {
         db.query('DELETE FROM ifruit.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
             [fk_id_cliente, fk_id_producto],
-            (error, result) => {
+            (error, row) => {
                 if (error) { return reject(error) }
                 else {
-                    resolve(result);
+                    resolve(row);
+                    console.log(row);
                 }
             })
     })

@@ -52,7 +52,7 @@ router.get('/favoritos/:clienteId', async (req, res) => {
 });
 
 //PETICION PARA ELIMINAR UN PRODUCTO DE FAVORITOS
-router.delete('/favoritos/remove', async (req, res) => {
+router.delete('/favoritos', async (req, res) => {
     try {
         const result = await removeFav(req.body);
         console.log(req.body);

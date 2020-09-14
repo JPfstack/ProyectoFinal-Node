@@ -37,7 +37,6 @@ function insertFavorito({ fk_id_cliente, fk_id_producto }) {
     })
 };
 
-<<<<<<< HEAD
 //METODO PARA OBTENER LOS PRODUCTOS FAVORITOS DE UN CLIENTE
 function getProdFav(fk_id_cliente) {
     return new Promise((resolve, reject) => {
@@ -54,8 +53,7 @@ function getProdFav(fk_id_cliente) {
 };
 
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav }
-=======
+
 //METODO PARA AGREGAR UN NUEVO PRODUCTO A EL CARRITO A TRAVES DEL ID_CLIENTE
 
 const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
@@ -75,8 +73,4 @@ const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
 }
 
 
-
-
-
-module.exports = { getAllProductos, getProductoById, insertFavorito, productoSelect }
->>>>>>> featured_copy2
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect }

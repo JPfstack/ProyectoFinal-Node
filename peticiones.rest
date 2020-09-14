@@ -59,12 +59,16 @@ GET  http://localhost:3000/api/productos/favoritos/80
 
 
 ### PRODUCTOS: BORRAR PRODUCTOS DE FAVORITOS
-DELETE http://localhost:3000/api/productos/favoritos
+DELETE http://localhost:3000/api/productos/favoritos/id/56
+
+
+### PRODUCTOS: OBTENER ID DE UN FAVORITO
+POST http://localhost:3000/api/productos/favoritos/id
 Content-Type: application/json
 
 {
-    "fk_id_cliente": 116,
-    "fk_id_producto": 1
+    "fk_id_cliente": 121,
+    "fk_id_producto": 2
 }
 
 

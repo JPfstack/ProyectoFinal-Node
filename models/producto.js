@@ -53,19 +53,30 @@ function getProdFav(fk_id_cliente) {
 };
 
 //METODO PARA ELIMINAR PRODUCTO DE FAVORITOS
-function removeFav({ fk_id_cliente, fk_id_producto }) {
+function removeFav(pId) {
     return new Promise((resolve, reject) => {
-        db.query('DELETE FROM ifruit.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
-            [fk_id_cliente, fk_id_producto],
-            (error, row) => {
-                if (error) { return reject(error) }
+        db.query('DELETE FROM ifruit.tbi_cliente_producto WHERE id=?',
+            [pId],
+            (error, result) => {
+                if (error) { reject(error) }
                 else {
-                    resolve(row);
-                    console.log(row);
+                    resolve(result);
+                    console.log(result);
                 }
             })
     })
 };
 
+//METODO PARA OBTENER EL ID DE UN FAVORITO
+function getIdFav({ fk_id_cliente, fk_id_producto }) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM ifruit.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
+            [fk_id_cliente, fk_id_producto],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else { resolve(result) }
+            })
+    })
+};
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav }
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav }

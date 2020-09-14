@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav, getIdFav } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS
@@ -42,7 +42,6 @@ router.get('/favoritos/:clienteId', async (req, res) => {
 
     try {
         const result = await getProdFav(req.params.clienteId);
-        /*   const listaProductos = await getProductoById() */
         console.log(req.body);
         console.log(result['fk_id_producto']);
         res.json(result)
@@ -52,12 +51,27 @@ router.get('/favoritos/:clienteId', async (req, res) => {
 });
 
 //PETICION PARA ELIMINAR UN PRODUCTO DE FAVORITOS
-router.delete('/favoritos', async (req, res) => {
+router.delete('/favoritos/id/:id', async (req, res) => {
     try {
-        const result = await removeFav(req.body);
-        console.log(req.body);
-        res.json(result);
+        const result = await removeFav(req.params.id);
+        console.log(req.params);
         console.log(result);
+        if (result['affectedRows'] === 1) {
+            res.json({ sucess: 'Borrado' });
+        } else {
+            res.json({ error: 'No borrado, comprobar ID' })
+        }
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
+
+//PETICION PARA OBTENER EL ID DE UN FAVORITO
+router.post('/favoritos/id', async (req, res) => {
+    try {
+        const result = await getIdFav(req.body);
+        console.log(result);
+        res.json(result)
     } catch (error) {
         res.json({ error: error.message })
     }

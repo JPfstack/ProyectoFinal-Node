@@ -59,11 +59,6 @@ Content-Type: application/json
 GET  http://localhost:3000/api/productos/favoritos/80
 
 
-<<<<<<< HEAD
-###PRODUCTOS: AÑADIR UN PRODUCTO SELECCIONADO AL CARRITO
-POST http://localhost:3000/api/productos/anadir
-Content-Type: application/json
-=======
 ### PRODUCTOS: BORRAR PRODUCTOS DE FAVORITOS
 DELETE http://localhost:3000/api/productos/favoritos/id/56
 
@@ -90,7 +85,6 @@ Content-Type: application/json
     "imagen": "kjhasjdhsajk",
     "descripcion": "jhjhjhskjadkas"
 }
->>>>>>> 2278da33b495d0d64b3f3e3b9ecaced72d060ad9
 
 {
     "fk_id_producto":5,

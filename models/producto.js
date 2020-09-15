@@ -52,8 +52,53 @@ function getProdFav(fk_id_cliente) {
     })
 };
 
+//METODO PARA ELIMINAR PRODUCTO DE FAVORITOS
+function removeFav(pId) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM ifruit.tbi_cliente_producto WHERE id=?',
+            [pId],
+            (error, result) => {
+                if (error) { reject(error) }
+                else {
+                    resolve(result);
+                    console.log(result);
+                }
+            })
+    })
+};
 
+//METODO PARA OBTENER EL ID DE UN FAVORITO
+function getIdFav({ fk_id_cliente, fk_id_producto }) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM ifruit.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
+            [fk_id_cliente, fk_id_producto],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else { resolve(result) }
+            })
+    })
+};
 
+//METODO PARA AÑADIR NUEVO PRODUCTO
+function addProducto({ nombre, precio, disponibilidad, est, imagen, descripcion }) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO ifruit.productos (nombre,precio,disponibilidad,est,imagen,descripcion) VALUES (?,?,?,?,?,?)',
+            [nombre, precio, disponibilidad, est, imagen, descripcion],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(result)
+                    console.log(result);
+                }
+            })
+    })
+
+};
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> develop-N
 //METODO PARA AGREGAR UN NUEVO PRODUCTO A EL CARRITO A TRAVES DEL ID_CLIENTE
 
 const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
@@ -73,4 +118,9 @@ const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
 }
 
 
+<<<<<<< HEAD
 module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect }
+=======
+
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto }
+>>>>>>> develop-N

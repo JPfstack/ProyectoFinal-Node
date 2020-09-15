@@ -45,6 +45,7 @@ GET http://localhost:3000/api/productos
 GET http://localhost:3000/api/productos/2
 
 
+
 ### PRODUCTOS: INCLUIR PRODUCTO A FAVORITOS SEGUN ID CLIENTE
 POST http://localhost:3000/api/productos/favoritos
 Content-Type: application/json
@@ -58,9 +59,32 @@ Content-Type: application/json
 GET  http://localhost:3000/api/productos/favoritos/80
 
 
-###PRODUCTOS: AÑADIR UN PRODUCTO SELECCIONADO AL CARRITO
-POST http://localhost:3000/api/productos/anadir
+### PRODUCTOS: BORRAR PRODUCTOS DE FAVORITOS
+DELETE http://localhost:3000/api/productos/favoritos/id/56
+
+
+### PRODUCTOS: OBTENER ID DE UN FAVORITO
+POST http://localhost:3000/api/productos/favoritos/id
 Content-Type: application/json
+
+{
+    "fk_id_cliente": 121,
+    "fk_id_producto": 2
+}
+
+
+### PRODUCTO: INCLUIR NUEVO PRODUCTO
+POST http://localhost:3000/api/productos/
+Content-Type: application/json
+
+{
+    "nombre": "Hola",
+    "precio": 1.25,
+    "disponibilidad": 25,
+    "est": "primavera-verano",
+    "imagen": "kjhasjdhsajk",
+    "descripcion": "jhjhjhskjadkas"
+}
 
 {
     "fk_id_producto":5,
@@ -96,6 +120,15 @@ GET http://localhost:3000/api/pedidos
 
 ###PEDIDOS: PETICION POST OBTENER PEDIDOS SEGUN ID DE CLIENTE
 GET http://localhost:3000/api/clientes/pedidos/77
+
+
+###PEDIDOS: PETICION PUT CAMBIAR PEDIDO A REALIZADO
+PUT http://localhost:3000/api/pedidos/realizados
+Content-Type: application/json
+
+{
+    "id_pedido": 6
+}
 
 
 

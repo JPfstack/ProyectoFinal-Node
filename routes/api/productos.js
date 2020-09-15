@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav, getIdFav } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito, getProdFav, removeFav, getIdFav, addProducto } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS
@@ -76,5 +76,21 @@ router.post('/favoritos/id', async (req, res) => {
         res.json({ error: error.message })
     }
 });
+
+
+//PETICION PARA INCLUIR UN NUEVO PRODUCTO
+router.post('/', async (req, res) => {
+    try {
+        const newProd = await addProducto(req.body)
+        console.log(newProd);
+        res.json({ sucess: 'Producto incluido' })
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
+
+
+
+
 
 module.exports = router;

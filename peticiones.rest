@@ -45,6 +45,7 @@ GET http://localhost:3000/api/productos
 GET http://localhost:3000/api/productos/2
 
 
+
 ### PRODUCTOS: INCLUIR PRODUCTO A FAVORITOS SEGUN ID CLIENTE
 POST http://localhost:3000/api/productos/favoritos
 Content-Type: application/json
@@ -71,6 +72,19 @@ Content-Type: application/json
     "fk_id_producto": 2
 }
 
+
+### PRODUCTO: INCLUIR NUEVO PRODUCTO
+POST http://localhost:3000/api/productos/
+Content-Type: application/json
+
+{
+    "nombre": "Hola",
+    "precio": 1.25,
+    "disponibilidad": 25,
+    "est": "primavera-verano",
+    "imagen": "kjhasjdhsajk",
+    "descripcion": "jhjhjhskjadkas"
+}
 
 ### ADMIN: PETICION GET OBTENER LISTA DE PEDIDOS PENDIENTES DE ENTREGA
 GET http://localhost:3000/api/adminpedidos/

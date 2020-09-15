@@ -79,4 +79,20 @@ function getIdFav({ fk_id_cliente, fk_id_producto }) {
     })
 };
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav }
+//METODO PARA AÑADIR NUEVO PRODUCTO
+function addProducto({ nombre, precio, disponibilidad, est, imagen, descripcion }) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO ifruit.productos (nombre,precio,disponibilidad,est,imagen,descripcion) VALUES (?,?,?,?,?,?)',
+            [nombre, precio, disponibilidad, est, imagen, descripcion],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(result)
+                    console.log(result);
+                }
+            })
+    })
+
+};
+
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto }

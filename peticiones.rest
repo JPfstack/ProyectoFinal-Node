@@ -130,6 +130,15 @@ Content-Type: application/json
     "id_pedido": 6
 }
 
+###PEDIDO: AGREGAR PRODUCTOS AL PEDIDO
+POST http://localhost:3000/api/pedidos/nuevoPedido
+Content-Type: application/json
+
+{
+    "fk_id_producto":1,
+    "fk_id_pedido":2,
+    "cantidad":5
+}
 
 
 

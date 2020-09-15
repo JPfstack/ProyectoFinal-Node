@@ -95,10 +95,6 @@ function addProducto({ nombre, precio, disponibilidad, est, imagen, descripcion 
 
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> develop-N
 //METODO PARA AGREGAR UN NUEVO PRODUCTO A EL CARRITO A TRAVES DEL ID_CLIENTE
 
 const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
@@ -118,9 +114,5 @@ const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
 }
 
 
-<<<<<<< HEAD
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect }
-=======
 
 module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto }
->>>>>>> develop-N

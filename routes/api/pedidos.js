@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado } = require('../../models/pedidos');
-const { Router } = require('express');
+const { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado, addProdPedido } = require('../../models/pedidos');
+
 
 //PETICION OBTENER TODOS LOS PEDIDOS
 
@@ -42,6 +42,17 @@ router.post('/nuevo', async (req, res) => {
         const newPedido = await nuevoPedido(req.body);
         console.log(req.body);
         res.json(newPedido);
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+})
+
+//PETICION PARA AGREGAR PRODUCTOS A UN PEDIDO
+router.post('/nuevoPedido', async (req, res) => {
+    try {
+        const prodPedido = await addProdPedido(req.body);
+        console.log(req.body);
+        res.json(prodPedido);
     } catch (error) {
         res.json({ error: error.message })
     }

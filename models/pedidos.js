@@ -52,6 +52,21 @@ const nuevoPedido = ({ cantidad, fecha_entrega, precio_total, id_cliente, direcc
 
 };
 
+//METODO PARA AGREGAR PRODUCTOS A UN PEDIDO
+const addProdPedido = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
+    return new Promise((resolve, reject) => {
+        db.query('insert into ifruit.tbi_pedido_producto (fk_id_producto, fk_id_pedido, cantidad) values (?,?,?)', [
+            fk_id_producto, fk_id_pedido, cantidad], (error, result) => {
+                if (error) {
+                    return reject(error);
+                } else {
+                    resolve(result);
+                    console.log(result);
+                }
+            })
+    })
+}
+
 //METODO PARA CAMBIAR UN PEDIDO DE PENDIENTE A REALIZADO
 function changeToRealizado(id_pedido) {
     return new Promise((resolve, reject) => {
@@ -72,4 +87,4 @@ function changeToRealizado(id_pedido) {
 
 
 
-module.exports = { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado }
+module.exports = { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado, addProdPedido }

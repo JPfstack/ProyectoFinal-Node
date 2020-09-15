@@ -105,6 +105,15 @@ GET http://localhost:3000/api/pedidos
 GET http://localhost:3000/api/clientes/pedidos/77
 
 
+###PEDIDOS: PETICION PUT CAMBIAR PEDIDO A REALIZADO
+PUT http://localhost:3000/api/pedidos/realizados
+Content-Type: application/json
+
+{
+    "id_pedido": 6
+}
+
+
 
 
 ### ADMIN: PETICION GET OBTENER LISTADO DE CLIENTES

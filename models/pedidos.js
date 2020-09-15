@@ -52,7 +52,23 @@ const nuevoPedido = ({ cantidad, fecha_entrega, precio_total, id_cliente, direcc
 
 };
 
+//METODO PARA CAMBIAR UN PEDIDO DE PENDIENTE A REALIZADO
+function changeToRealizado(id_pedido) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE ifruit.pedidos SET pedidos.estado = "realizado" WHERE id_pedido=?',
+            [id_pedido],
+            (error, result) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(result)
+                    console.log(result);
+                }
+            })
+
+    })
+
+};
 
 
 
-module.exports = { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido }
+module.exports = { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado }

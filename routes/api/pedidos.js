@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido } = require('../../models/pedidos');
+const { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado } = require('../../models/pedidos');
 const { Router } = require('express');
 
 //PETICION OBTENER TODOS LOS PEDIDOS
@@ -47,5 +47,16 @@ router.post('/nuevo', async (req, res) => {
     }
 })
 
+//PETICION PARA CAMBIAR PEDIDO A REALIZADO
+router.put('/realizados', async (req, res) => {
+    try {
+        const changePedido = await changeToRealizado(req.body.id_pedido);
+        console.log(req.body);
+        res.json({ changePedido })
+
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+})
 
 module.exports = router

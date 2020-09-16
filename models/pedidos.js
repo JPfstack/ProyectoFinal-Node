@@ -38,8 +38,8 @@ function getAllPedidoRealizado() {
 const nuevoPedido = ({ cantidad, fecha_entrega, precio_total, id_cliente, direccion, descripcion }) => {
 
     return new Promise((resolve, reject) => {
-        db.query('insert into ifruit.pedidos (cantidad, fecha_entrega, precio_total, id_cliente, direccion, descripcion) values (?,?,?,?,?,?)',
-            [cantidad, fecha_entrega, precio_total, id_cliente, direccion, descripcion], (error, result) => {
+        db.query('insert into ifruit.pedidos (cantidad, fecha_entrega, precio_total, id_cliente, direccion, descripcion, estado) values (?,?,?,?,?,?,?)',
+            [cantidad, fecha_entrega, precio_total, id_cliente, direccion, descripcion, estado], (error, result) => {
                 if (error) {
                     return reject(error);
                 } else {

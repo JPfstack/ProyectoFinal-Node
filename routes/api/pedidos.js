@@ -1,6 +1,8 @@
 const express = require('express');
+const { getClienteById } = require('../../models/cliente');
 const router = express.Router();
 const { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado, addProdPedido } = require('../../models/pedidos');
+const { getProductoById } = require('../../models/producto');
 
 
 //PETICION OBTENER TODOS LOS PEDIDOS
@@ -39,13 +41,35 @@ router.post('/realizados', async (req, res) => {
 //PETICION PARA CREAR UN NUEVO PEDIDO
 router.post('/nuevo', async (req, res) => {
     try {
-        const newPedido = await nuevoPedido(req.body);
         console.log(req.body);
-        res.json(newPedido);
+        const pedido = {
+            id_cliente: req.body[0].id_cliente,
+            fecha_entrega: new Date(),
+            estado: "pendiente"
+        }
+        pedido.direccion = (await getClienteById(pedido.id_cliente)).direccion;
+
+        let descripcion = "";
+        let cantidadTotal = 0;
+        let precioTotal = 0;
+        for (let producto of req.body) {
+            precioTotal += producto.precio * producto.cantidad;
+            cantidadTotal = cantidadTotal + parseFloat(producto.cantidad);
+            const prod = await getProductoById(producto.id_producto)
+            const nombre = prod[0].nombre;
+            descripcion += `${producto.cantidad}Kg: ${nombre}\n`;
+        }
+
+        pedido.precio_total = precioTotal;
+        pedido.cantidad = cantidadTotal;
+        pedido.descripcion = descripcion;
+
+        await nuevoPedido(pedido);
+        res.json(req.body)
     } catch (error) {
         res.json({ error: error.message })
     }
-})
+});
 
 //PETICION PARA AGREGAR PRODUCTOS A UN PEDIDO
 router.post('/nuevoPedido', async (req, res) => {

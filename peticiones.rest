@@ -105,7 +105,7 @@ Content-Type: application/json
     "id_cliente":5,
     "direccion":"Calle gran via",
     "descripcion": "1 kg fresas",
-    "estado":"realizado"
+    "estado":"pendiente"
 }
 
 

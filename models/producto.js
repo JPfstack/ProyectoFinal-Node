@@ -111,8 +111,25 @@ const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
 
     })
 
-}
+};
+
+//METODO PARA ACTUALIZAR LA DISPONIBILIDAD DE PRODUCTO
+function newDisponibilidad({ disponibilidad, id_prod }) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE ifruit.productos SET disponibilidad=? WHERE id_prod=?',
+            [disponibilidad, id_prod],
+            (error, rows) => {
+                if (error) {
+                    return reject(error)
+                } else {
+                    resolve(rows)
+                    console.log(rows);
+                }
+            }
+        )
+    })
+};
 
 
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto }
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto, newDisponibilidad }

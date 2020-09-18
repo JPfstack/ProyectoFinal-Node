@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect, getIdFav, removeFav, addProducto, newDisponibilidad } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect, getIdFav, removeFav, addProducto, newDisponibilidad, editProd } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS
@@ -137,7 +137,17 @@ router.put('/edit', async (req, res) => {
     }
 });
 
-
+//PETICION PARA ACTUALIZAR PRECIO Y DISPONIBILIDAD DE UN PRODUCTO
+router.put('/editprecio', async (req, res) => {
+    try {
+        const prodEditado = await editProd(req.body);
+        console.log(prodEditado);
+        console.log(req.body);
+        res.json(prodEditado)
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
 
 module.exports = router;
 

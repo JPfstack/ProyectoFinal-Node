@@ -101,6 +101,17 @@ PUT http://localhost:3000/api/productos/
 }
 
 
+###PRODUCTO: ACTUALIZAR PRECIO Y DISPONIBILIDAD
+PUT http://localhost:3000/api/productos/editprecio
+Content-Type: application/json
+
+{
+"id_prod": 1,
+"disponibilidad":25,
+"precio": 0.75
+}
+
+
 ### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO
 POST http://localhost:3000/api/pedidos/nuevo
 Content-Type: application/json

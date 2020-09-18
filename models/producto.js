@@ -131,5 +131,21 @@ function newDisponibilidad({ disponibilidad, id_prod }) {
 };
 
 
+//METODO PARA ACTUALIZAR DATOS DE UN PRODUCTO
+function editProd({ id_prod, precio, disponibilidad }) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE ifruit.productos SET productos.precio=?, productos.disponibilidad=? WHERE productos.id_prod=?',
+            [precio, disponibilidad, id_prod],
+            (error, row) => {
+                if (error) { return reject(error) }
+                else {
+                    resolve(row);
+                    console.log(row);
+                }
+            }
+        )
+    })
+};
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto, newDisponibilidad }
+
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto, newDisponibilidad, editProd }

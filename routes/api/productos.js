@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect, getIdFav, removeFav } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS

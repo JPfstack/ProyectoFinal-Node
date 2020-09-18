@@ -115,4 +115,4 @@ const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
 
 
 
-module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto }
+module.exports = { getAllProductos, getProductoById, insertFavorito, getProdFav, getIdFav, removeFav, addProducto, productoSelect }

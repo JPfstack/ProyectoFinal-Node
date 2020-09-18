@@ -68,8 +68,8 @@ POST http://localhost:3000/api/productos/favoritos/id
 Content-Type: application/json
 
 {
-    "fk_id_cliente": 121,
-    "fk_id_producto": 2
+    "fk_id_cliente": 77,
+    "fk_id_producto": 14
 }
 
 
@@ -92,6 +92,24 @@ Content-Type: application/json
     "cantidad": 12
 }
 
+###PRODUCTO: ACTUALIZAR DISPONIBILIDAD
+PUT http://localhost:3000/api/productos/
+
+{
+    "disponibilidad": 90, 
+    "id_prod": 1
+}
+
+
+###PRODUCTO: ACTUALIZAR PRECIO Y DISPONIBILIDAD
+PUT http://localhost:3000/api/productos/editprecio
+Content-Type: application/json
+
+{
+"id_prod": 1,
+"disponibilidad":25,
+"precio": 0.75
+}
 
 
 ### CLIENTE: PETICION PARA CREAR UN NUEVO PEDIDO

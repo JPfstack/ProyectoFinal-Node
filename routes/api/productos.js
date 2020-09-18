@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect, getIdFav, removeFav } = require('./../../models/producto');
+const { getAllProductos, getProductoById, insertFavorito, getProdFav, productoSelect, getIdFav, removeFav, addProducto, newDisponibilidad, editProd } = require('./../../models/producto');
 
 
 //PETICION PARA OBTENER TODOS LOS PRODUCTOS
@@ -103,6 +103,52 @@ router.post('/anadir', async (req, res) => {
         res.json({ error: error.message })
     }
 })
+
+
+
+//PETICION PARA ACTUALIZAR LA DISPONIBILIDAD DE PRODUCTOS CADA VEZ QUE SE REALIZA UN PEDIDO
+router.put('/edit', async (req, res) => {
+    try {
+        let cantidadActual;
+        let cantidadComprada;
+        let newDisponible;
+        for (let prod of req.body) {
+            const detalleProducto = await getProductoById(prod.id_producto);
+            cantidadActual = parseFloat(detalleProducto[0].disponibilidad);
+            const id_prod = prod.id_producto;
+            cantidadComprada = parseFloat(prod.cantidad);
+            console.log(cantidadComprada);
+
+            const disponibilidad = (cantidadActual - cantidadComprada);
+            console.log(newDisponible);
+
+            const newDisp = await newDisponibilidad({ disponibilidad, id_prod });
+            console.log(newDisp);
+
+
+        }
+
+
+        res.json(req.body)
+
+
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
+
+//PETICION PARA ACTUALIZAR PRECIO Y DISPONIBILIDAD DE UN PRODUCTO
+router.put('/editprecio', async (req, res) => {
+    try {
+        const prodEditado = await editProd(req.body);
+        console.log(prodEditado);
+        console.log(req.body);
+        res.json(prodEditado)
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
+
 module.exports = router;
 
 

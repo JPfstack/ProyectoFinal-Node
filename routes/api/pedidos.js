@@ -2,7 +2,7 @@ const express = require('express');
 const { getClienteById } = require('../../models/cliente');
 const router = express.Router();
 const { getAllPedidos, getAllPedidosAdmin, getAllPedidoRealizado, nuevoPedido, changeToRealizado, addProdPedido } = require('../../models/pedidos');
-const { getProductoById } = require('../../models/producto');
+const { getProductoById, newDisponibilidad } = require('../../models/producto');
 
 
 //PETICION OBTENER TODOS LOS PEDIDOS
@@ -41,7 +41,6 @@ router.post('/realizados', async (req, res) => {
 //PETICION PARA CREAR UN NUEVO PEDIDO
 router.post('/nuevo', async (req, res) => {
     try {
-        console.log(req.body);
         const pedido = {
             id_cliente: req.body[0].id_cliente,
             fecha_entrega: new Date(),
@@ -52,14 +51,22 @@ router.post('/nuevo', async (req, res) => {
         let descripcion = "";
         let cantidadTotal = 0;
         let precioTotal = 0;
+        let cantidadProd = 0;
         for (let producto of req.body) {
             precioTotal += producto.precio * producto.cantidad;
             cantidadTotal = cantidadTotal + parseFloat(producto.cantidad);
             const prod = await getProductoById(producto.id_producto)
             const nombre = prod[0].nombre;
             descripcion += `${producto.cantidad}Kg: ${nombre}\n`;
+
+
+
         }
 
+
+
+
+        //
         pedido.precio_total = precioTotal;
         pedido.cantidad = cantidadTotal;
         pedido.descripcion = descripcion;

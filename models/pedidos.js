@@ -3,7 +3,7 @@ const router = require("../routes");
 //METODO PARA OBTENER TODOS LOS PEDIDOS
 function getAllPedidos() {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.pedidos', (error, rows) => {
+        db.query('SELECT * FROM ifruit.pedidos ORDER BY pedidos.estado', (error, rows) => {
             if (error) return reject(error);
             resolve(rows);
         })

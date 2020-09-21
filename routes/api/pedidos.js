@@ -58,15 +58,7 @@ router.post('/nuevo', async (req, res) => {
             const prod = await getProductoById(producto.id_producto)
             const nombre = prod[0].nombre;
             descripcion += `${producto.cantidad}Kg: ${nombre}\n`;
-
-
-
         }
-
-
-
-
-        //
         pedido.precio_total = precioTotal;
         pedido.cantidad = cantidadTotal;
         pedido.descripcion = descripcion;

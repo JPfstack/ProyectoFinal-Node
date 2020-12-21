@@ -1,7 +1,7 @@
 //METODO PARA REGISTRAR NUEVO CLIENTE
 function registroCliente({ nombre, apellidos, telefono, direccion, email, password }) {
     return new Promise((resolve, reject) => {
-        db.query('INSERT INTO ifruit.clientes (nombre,apellidos,telefono,direccion,email,password) VALUES (?,?,?,?,?,?)',
+        db.query('INSERT INTO gknhsgxnv7hln1y2.clientes (nombre,apellidos,telefono,direccion,email,password) VALUES (?,?,?,?,?,?)',
             [nombre, apellidos, telefono, direccion, email, password],
             (error, result) => {
                 if (error) {
@@ -18,7 +18,7 @@ function registroCliente({ nombre, apellidos, telefono, direccion, email, passwo
 //METODO PARA OBTENER LOS DATOS DE UN CLIENTE
 function getClienteById(pClienteId) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.clientes WHERE id_cliente=?',
+        db.query('SELECT * FROM gknhsgxnv7hln1y2.clientes WHERE id_cliente=?',
             [pClienteId],
             (error, rows) => {
                 if (error) { return reject(error) }
@@ -33,7 +33,7 @@ function getClienteById(pClienteId) {
 //METODO PARA OBTENER EL HISTORICO DE PEDIDOS DE UN CLIENTE
 function getAllPedidosClientes(pClienteId) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.pedidos WHERE id_cliente=?',
+        db.query('SELECT * FROM gknhsgxnv7hln1y2.pedidos WHERE id_cliente=?',
             [pClienteId],
             (error, rows) => {
                 if (error) { return reject(error) }
@@ -49,7 +49,7 @@ function getAllPedidosClientes(pClienteId) {
 //METODO PARA LOGIN, OBTENER EL ID DE UN CLIENTE A PARTIR DEL EMAIL
 function getIdByEmail(pEmail) {
     return new Promise((resolve, reject) => [
-        db.query('SELECT * FROM ifruit.clientes WHERE email=?',
+        db.query('SELECT * FROM gknhsgxnv7hln1y2.clientes WHERE email=?',
             [pEmail],
             (error, rows) => {
                 if (error) { return reject(error) }
@@ -64,7 +64,7 @@ function getIdByEmail(pEmail) {
 //METODO PARA EDITAR DATOS DE UN CLIENTE
 function editCliente({ nombre, apellidos, direccion, telefono, email, id_cliente }) {
     return new Promise((resolve, reject) => {
-        db.query('UPDATE ifruit.clientes SET nombre=?, apellidos=?, direccion=?, telefono=?, email=? WHERE id_cliente=?',
+        db.query('UPDATE gknhsgxnv7hln1y2.clientes SET nombre=?, apellidos=?, direccion=?, telefono=?, email=? WHERE id_cliente=?',
             [nombre, apellidos, direccion, telefono, email, id_cliente],
             (error, result) => {
                 if (error) { return reject(error) }

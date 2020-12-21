@@ -55,7 +55,7 @@ function getProdFav(fk_id_cliente) {
 //METODO PARA ELIMINAR PRODUCTO DE FAVORITOS
 function removeFav(pId) {
     return new Promise((resolve, reject) => {
-        db.query('DELETE FROM ifruit.tbi_cliente_producto WHERE id=?',
+        db.query('DELETE FROM gknhsgxnv7hln1y2.tbi_cliente_producto WHERE id=?',
             [pId],
             (error, result) => {
                 if (error) { reject(error) }
@@ -70,7 +70,7 @@ function removeFav(pId) {
 //METODO PARA OBTENER EL ID DE UN FAVORITO
 function getIdFav({ fk_id_cliente, fk_id_producto }) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
+        db.query('SELECT * FROM gknhsgxnv7hln1y2.tbi_cliente_producto WHERE fk_id_cliente=? AND fk_id_producto=?',
             [fk_id_cliente, fk_id_producto],
             (error, result) => {
                 if (error) { return reject(error) }
@@ -82,7 +82,7 @@ function getIdFav({ fk_id_cliente, fk_id_producto }) {
 //METODO PARA AÑADIR NUEVO PRODUCTO
 function addProducto({ nombre, precio, disponibilidad, est, imagen, descripcion }) {
     return new Promise((resolve, reject) => {
-        db.query('INSERT INTO ifruit.productos (nombre,precio,disponibilidad,est,imagen,descripcion) VALUES (?,?,?,?,?,?)',
+        db.query('INSERT INTO gknhsgxnv7hln1y2.productos (nombre,precio,disponibilidad,est,imagen,descripcion) VALUES (?,?,?,?,?,?)',
             [nombre, precio, disponibilidad, est, imagen, descripcion],
             (error, result) => {
                 if (error) { return reject(error) }
@@ -99,7 +99,7 @@ function addProducto({ nombre, precio, disponibilidad, est, imagen, descripcion 
 
 const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into ifruit.tbi_pedido_producto (fk_id_producto, fk_id_pedido, cantidad) values (?,?,?)',
+        db.query('insert into gknhsgxnv7hln1y2.tbi_pedido_producto (fk_id_producto, fk_id_pedido, cantidad) values (?,?,?)',
             [fk_id_producto, fk_id_pedido, cantidad], (error, result) => {
                 if (error) {
                     reject(error);
@@ -116,7 +116,7 @@ const productoSelect = ({ fk_id_producto, fk_id_pedido, cantidad }) => {
 //METODO PARA ACTUALIZAR LA DISPONIBILIDAD DE PRODUCTO
 function newDisponibilidad({ disponibilidad, id_prod }) {
     return new Promise((resolve, reject) => {
-        db.query('UPDATE ifruit.productos SET disponibilidad=? WHERE id_prod=?',
+        db.query('UPDATE gknhsgxnv7hln1y2.productos SET disponibilidad=? WHERE id_prod=?',
             [disponibilidad, id_prod],
             (error, rows) => {
                 if (error) {
@@ -134,7 +134,7 @@ function newDisponibilidad({ disponibilidad, id_prod }) {
 //METODO PARA ACTUALIZAR DATOS DE UN PRODUCTO
 function editProd({ id_prod, precio, disponibilidad }) {
     return new Promise((resolve, reject) => {
-        db.query('UPDATE ifruit.productos SET productos.precio=?, productos.disponibilidad=? WHERE productos.id_prod=?',
+        db.query('UPDATE gknhsgxnv7hln1y2.productos SET productos.precio=?, productos.disponibilidad=? WHERE productos.id_prod=?',
             [precio, disponibilidad, id_prod],
             (error, row) => {
                 if (error) { return reject(error) }

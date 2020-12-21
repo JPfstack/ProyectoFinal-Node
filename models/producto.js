@@ -2,7 +2,7 @@
 
 function getAllProductos() {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.productos', (error, rows) => {
+        db.query('SELECT * FROM gknhsgxnv7hln1y2.productos', (error, rows) => {
             if (error) return reject(error);
             resolve(rows)
         })
@@ -12,7 +12,7 @@ function getAllProductos() {
 // METODO PARA OBTENER UN PRODUCTO POR ID
 function getProductoById(pProductoId) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM ifruit.productos WHERE id_prod=?',
+        db.query('SELECT * FROM gknhsgxnv7hln1y2.productos WHERE id_prod=?',
             [pProductoId],
             (error, row) => {
                 if (error) return reject(error)
@@ -24,7 +24,7 @@ function getProductoById(pProductoId) {
 //METODO PARA INLCUIR UN PRODUCTO EN FAVORITOS
 function insertFavorito({ fk_id_cliente, fk_id_producto }) {
     return new Promise((resolve, reject) => {
-        db.query('INSERT INTO ifruit.tbi_cliente_producto (fk_id_cliente, fk_id_producto) VALUES (?,?)',
+        db.query('INSERT INTO gknhsgxnv7hln1y2.tbi_cliente_producto (fk_id_cliente, fk_id_producto) VALUES (?,?)',
             [fk_id_cliente, fk_id_producto],
             (error, result) => {
                 if (error) { reject(error) }
